@@ -7,4 +7,7 @@ export class VmsModel {
     cpus: number; // Nombre max de cpu
     maxdisk: number;
     uptime: number;
+    ip: number;
+    cores: number;
+    eth: Array<string>;
 }
