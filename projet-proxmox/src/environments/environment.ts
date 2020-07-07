@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://172.16.1.92:8006/api2/json/'
+  baseUrl: 'http://localhost:3000'
 };
 
 /*

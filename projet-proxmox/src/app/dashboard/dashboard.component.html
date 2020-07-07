@@ -1,1 +1,5 @@
-<p>dashboard works!</p>
+<nz-tabset nzTabPosition="left">
+    <nz-tab *ngFor="let vm of vms" [nzTitle]="vm.name">
+        {{vm.vmid}}
+    </nz-tab>
+</nz-tabset>

@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "projet-proxmox"
+  "defaultProject": "projet-proxmox",
+  "cli": {
+    "analytics": "c71a8c18-e355-4df6-8702-5f09499dd49b"
+  }
 }

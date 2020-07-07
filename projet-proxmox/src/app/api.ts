@@ -1,3 +1,3 @@
 export enum Api {
-    get_nodes = 'nodes/'
+    get_nodes = 'nodes'
 }

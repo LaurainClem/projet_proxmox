@@ -14,8 +14,7 @@
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="Nodes" nzIcon="dashboard">
         <ul>
-          <li nz-menu-item>Proxmox 1</li>
-          <li nz-menu-item>Proxmox 2</li>
+          <li nz-menu-item *ngFor="let node of nodes">{{node.node}}</li>
         </ul>
       </li>
     </ul>
