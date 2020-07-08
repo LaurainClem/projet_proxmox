@@ -52,11 +52,6 @@ export class DashboardComponent implements OnInit {
         });
       });
     }
-    /* this.proxmoxService.changeStatusVm(vm.status === 'running' ? 'shutdown' : 'start').subscribe(() => {
-      this.proxmoxService.getVms().subscribe(result => {
-        this.vms = result;
-      });
-    }); */
   }
 
 }
