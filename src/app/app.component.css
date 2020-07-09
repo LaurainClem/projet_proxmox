@@ -1,0 +1,21 @@
+.logo {
+    background-image: url('../assets/logo_proxmox.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 3rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+}
+
+.header {
+    height: 15vh;
+}
