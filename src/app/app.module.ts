@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,9 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NodeComponent } from './node/node.component';
 import { VmComponent } from './vm/vm.component';
 import { AuthComponent } from './auth/auth.component';
-
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 registerLocaleData(fr);
 
 @NgModule({
@@ -30,7 +33,11 @@ registerLocaleData(fr);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzGridModule
+    NzGridModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    NzButtonModule,
+    NzCheckboxModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
   bootstrap: [AppComponent]

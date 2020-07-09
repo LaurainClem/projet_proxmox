@@ -5,3 +5,9 @@ app-root {
     display: block;
     background-color: #F5F8FF;
 }
+
+.card {
+    background: #FFFFFF;
+    box-shadow: 3px 2px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
