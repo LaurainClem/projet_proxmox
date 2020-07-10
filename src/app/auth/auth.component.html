@@ -1,35 +1,31 @@
-<div nz-row>
+<div nz-row class="row_login">
     <div nz-col nzSpan="12">
         <div class="card">
-            <h1>Se connecter</h1>
+            <h1 class="title_login_form">Se connecter</h1>
             <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
                 <nz-form-item>
-                  <nz-form-control nzErrorTip="Please input your username!">
+                  <nz-form-control nzErrorTip="Veuillez saisir votre adresse email !">
                     <nz-input-group nzPrefixIcon="user">
-                      <input type="text" nz-input formControlName="userName" placeholder="Username" />
+                      <input type="text" autofocus nz-input formControlName="userName" placeholder="jhondoe@mail.com" />
                     </nz-input-group>
                   </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
-                  <nz-form-control nzErrorTip="Please input your Password!">
+                  <nz-form-control nzErrorTip="Veuillez saisir votre mot de passe !">
                     <nz-input-group nzPrefixIcon="lock">
-                      <input type="password" nz-input formControlName="password" placeholder="Password" />
+                      <input type="password" nz-input formControlName="password" placeholder="********" />
                     </nz-input-group>
                   </nz-form-control>
                 </nz-form-item>
-                <div nz-row class="login-form-margin">
-                  <div nz-col [nzSpan]="12">
-                    <label nz-checkbox formControlName="remember">
-                      <span>Remember me</span>
-                    </label>
-                  </div>
-                </div>
-                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
-                Or <a> register now! </a>
+                <nz-form-item>
+                  <nz-select [ngModel]="realms[0]" formControlName="realm">
+                    <nz-option *ngFor="let realm of realms" [nzValue]="realm" [nzLabel]="realm"></nz-option>
+                  </nz-select>
+                </nz-form-item>
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Se connecter</button>
               </form>
         </div>
     </div>
-    <div nz-col nzSpan="12">
-
+    <div nz-col nzSpan="12" class="img_login">
     </div>
 </div>

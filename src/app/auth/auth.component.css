@@ -1,20 +1,75 @@
 .card {
     height: 50vh;
-    margin: 0 0 0 15vw;
+    margin: 0 15% 15vw;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30vw;
 }
 
 .login-form {
     max-width: 300px;
-  }
+}
 
-  .login-form-margin {
-    margin-bottom: 16px;
-  }
+.login-form-margin {
+  margin-bottom: 16px;
+}
 
-  .login-form-forgot {
-    float: right;
-  }
+.login-form-forgot {
+  float: right;
+}
 
-  .login-form-button {
-    width: 100%;
-  }
+.login-form-button {
+  width: 100%;
+}
+
+.title_login_form {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 3rem;
+  font-size: 2.5rem;
+}
+
+form {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3rem;
+  font-family: 'Lato', sans-serif;
+}
+
+nz-form-control {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  margin: .3rem 0;
+  font-size: 1.rem;
+}
+
+.footer_form {
+  margin-top: 2rem;
+}
+
+.img_login {
+  background-image: url('../../assets/flat_design_login.svg');
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+button {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  height: 3rem;
+  border-radius: 5px;
+  margin-top: 10%;
+}
+
+nz-input-group {
+  border-radius: 5px;
+}
+
+nz-form-item {
+  margin: 0;
+}

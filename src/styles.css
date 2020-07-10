@@ -11,3 +11,14 @@ app-root {
     box-shadow: 3px 2px 25px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
 }
+
+app-auth {
+    display: block;
+    height: 85vh;
+}
+
+.row_login {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
