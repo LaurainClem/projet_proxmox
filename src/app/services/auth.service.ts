@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError, retry } from 'rxjs/operators';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { tick } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -47,5 +48,19 @@ export class AuthService {
 
   getRealm(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/realms`);
+  }
+
+  getDisconected() {
+    this.username = undefined;
+    this.CSRFPrevention = undefined;
+    this.ticket = undefined;
+    this.router.navigateByUrl('/login');
+  }
+
+  getCredentials(): {ticket: string, CSRFPrevention: string} {
+    return {
+      ticket: this.ticket,
+      CSRFPrevention: this.CSRFPrevention
+    };
   }
 }

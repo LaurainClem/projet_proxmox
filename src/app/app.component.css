@@ -19,3 +19,19 @@
 .header {
     height: 15vh;
 }
+
+.user_info {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.username {
+    vertical-align: super;
+    font-family: 'Lato', sans-serif;
+    margin-right: 1rem;
+}
+
+.exit_icon:hover {
+    cursor: pointer;
+}

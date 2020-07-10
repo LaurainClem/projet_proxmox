@@ -1,1 +1,10 @@
-<p>node works!</p>
+<nz-row nzJustify="center" class="node_row">
+    <nz-col nzSpan="8" *ngFor="let node of nodes">
+        <div class="card">
+            <h2 class="node_name">{{node.name}}</h2>
+            <nz-tag [nzColor]="'#87d068'">{{node.status}}</nz-tag>
+            <span class="node_vm">Machines virtuelles :</span>
+            <span class="node_vm">{{node.vmCount}}</span>
+        </div>
+    </nz-col>
+</nz-row>

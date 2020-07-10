@@ -4,6 +4,12 @@
   <div nz-col nzSpan="4">
     <h2 class="title">Hypervisor</h2>
   </div>
+  <div class="user_info" *ngIf="authService.username">
+    <span class="username">{{authService.username}}</span>
+    <span class="material-icons exit_icon" (click)="authService.getDisconected()">
+      exit_to_app
+      </span>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

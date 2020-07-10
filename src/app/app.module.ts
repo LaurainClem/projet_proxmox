@@ -21,6 +21,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 registerLocaleData(fr);
 
 @NgModule({
@@ -43,7 +44,8 @@ registerLocaleData(fr);
     NzCheckboxModule,
     NzFormModule,
     NzSelectModule,
-    NzMessageModule
+    NzMessageModule,
+    NzTagModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
   bootstrap: [AppComponent]

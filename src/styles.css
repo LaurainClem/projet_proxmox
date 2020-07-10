@@ -22,3 +22,8 @@ app-auth {
     top: 50%;
     transform: translateY(-50%);
 }
+
+app-node {
+    margin-top: 15vh;
+    display: block;
+}
