@@ -11,6 +11,8 @@ import { AuthService } from './auth.service';
 })
 export class ProxmoxService {
 
+  nodeSelected: string;
+
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getNodes(): Observable<Array<NodeModels>> {

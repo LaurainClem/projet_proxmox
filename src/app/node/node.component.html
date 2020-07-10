@@ -2,9 +2,11 @@
     <nz-col nzSpan="8" *ngFor="let node of nodes">
         <div class="card">
             <h2 class="node_name">{{node.name}}</h2>
-            <nz-tag [nzColor]="'#87d068'">{{node.status}}</nz-tag>
+            <nz-tag *ngIf="node.status === 'online'" [nzColor]="'#87d068'">En service</nz-tag>
+            <nz-tag *ngIf="node.status === 'offline'" [nzColor]="'#e74c3c'">A l'arrêt</nz-tag>
+            <nz-tag *ngIf="node.status === 'unknown'" [nzColor]="'#ecf0f1'">Inconnu</nz-tag>
             <span class="node_vm">Machines virtuelles :</span>
-            <span class="node_vm">{{node.vmCount}}</span>
+            <span class="node_vm nb_vm">{{node.vmCount}}</span>
         </div>
     </nz-col>
 </nz-row>

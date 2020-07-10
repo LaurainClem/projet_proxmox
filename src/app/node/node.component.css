@@ -6,6 +6,7 @@
     font-family: 'Lato', sans-serif;
     margin-right: 5rem;
     padding: 2rem 1rem;
+    position: relative;
 }
 
 .card:hover {
@@ -21,4 +22,15 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     font-size: 2rem;
+}
+
+nz-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1rem;
+}
+
+.nb_vm {
+    margin-left: 1rem;
 }

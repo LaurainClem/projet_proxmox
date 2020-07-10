@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NodeComponent } from './node/node.component';
 import { IsLoggedInGuard } from './is-logged-in.guard';
 import { AuthComponent } from './auth/auth.component';
+import { VmComponent } from './vm/vm.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: AuthComponent
+  },
+  {
+    path: 'vm',
+    component: VmComponent
   }
 ];
 
