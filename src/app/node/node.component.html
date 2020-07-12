@@ -1,6 +1,6 @@
 <nz-row nzJustify="center" class="node_row">
     <nz-col nzSpan="8" *ngFor="let node of nodes">
-        <div class="card">
+        <div class="card" (click)="gotoVmList(node.name)">
             <h2 class="node_name">{{node.name}}</h2>
             <nz-tag *ngIf="node.status === 'online'" [nzColor]="'#87d068'">En service</nz-tag>
             <nz-tag *ngIf="node.status === 'offline'" [nzColor]="'#e74c3c'">A l'arrêt</nz-tag>

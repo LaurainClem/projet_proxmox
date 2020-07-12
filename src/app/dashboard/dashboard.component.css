@@ -1,0 +1,38 @@
+.title_vm {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.card {
+    padding: 3rem;
+}
+
+.info_dashboard_primary {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 550;
+    color: black;
+    margin-right: 1rem;
+}
+
+.info_dashboard_secondary {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 550;
+    color: #34495e;
+}
+
+.info_interfaces {
+    margin-top: 2rem;
+}
+
+nz-tag {
+    font-size: 1.2rem;
+}
+
+nz-switch {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}

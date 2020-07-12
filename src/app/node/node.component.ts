@@ -15,9 +15,21 @@ export class NodeComponent implements OnInit {
   constructor(private proxmoxService: ProxmoxService, private router: Router) { }
 
   ngOnInit(): void {
-    this.proxmoxService.getNodes().subscribe((result => {
+    /* this.proxmoxService.getNodes().subscribe((result => {
       this.nodes = result;
-    }));
+    })); */
+    this.nodes = [
+    {
+      name: 'proxmox1',
+      status: 'online',
+      vmCount: 2
+    },
+    {
+      name: 'proxmox2',
+      status: 'offline',
+      vmCount: 0
+    }
+  ];
   }
 
   gotoVmList(nodeid) {

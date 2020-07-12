@@ -12,6 +12,7 @@ import { AuthService } from './auth.service';
 export class ProxmoxService {
 
   nodeSelected: string;
+  vmidSelected: number;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

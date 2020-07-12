@@ -43,7 +43,8 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.ticket !== undefined && this.CSRFPrevention !== undefined;
+    return true;
+    // return this.ticket !== undefined && this.CSRFPrevention !== undefined;
   }
 
   getRealm(): Observable<any> {

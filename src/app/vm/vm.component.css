@@ -1,0 +1,39 @@
+.title_vm {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-left: -10%;
+}
+
+.card {
+    font-family: 'Lato', sans-serif;
+    padding: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.name_vm {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}
+
+.icon_device {
+    color: black;
+    vertical-align: bottom;
+    margin: 0 .5rem;
+}
+
+.lt_vm {
+    font-size: 0.8rem;
+    font-family: 'Lato', sans-serif;
+    color: black;
+}
+
+nz-tag {
+    font-size: 1rem;
+}
+
+.card:hover {
+    cursor: pointer;
+    border: #E57000 2px solid;
+}

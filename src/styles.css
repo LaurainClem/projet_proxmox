@@ -27,3 +27,13 @@ app-node {
     margin-top: 15vh;
     display: block;
 }
+
+app-vm {
+    display: block;
+    margin: 15vh 20vw 0 20vw;
+}
+
+app-dashboard {
+    display: block;
+    margin: 15vh 10vw 0 10vw;
+}

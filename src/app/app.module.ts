@@ -22,6 +22,9 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { NgxGaugeModule } from 'ngx-gauge';
 registerLocaleData(fr);
 
 @NgModule({
@@ -29,7 +32,8 @@ registerLocaleData(fr);
     AppComponent,
     NodeComponent,
     VmComponent,
-    AuthComponent
+    AuthComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ registerLocaleData(fr);
     NzFormModule,
     NzSelectModule,
     NzMessageModule,
-    NzTagModule
+    NzTagModule,
+    NzSwitchModule,
+    NgxGaugeModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
   bootstrap: [AppComponent]

@@ -1,0 +1,71 @@
+<h2 class="title_vm">{{vm_info.name}}</h2>
+<nz-row>
+    <nz-col nzSpan="12" class="card">
+        <nz-switch nzCheckedChildren="On" nzUnCheckedChildren="Off"></nz-switch>
+        <nz-row>
+            <nz-col nzSpan="12">
+                <span class="info_dashboard_primary">VMID :</span>
+                <span class="info_dashboard_secondary">{{vm_info.vmid}}</span>
+            </nz-col>
+            <nz-col nzSpan="12">
+                <span class="info_dashboard_primary">Statut :</span>
+                <nz-tag *ngIf="vm_info.status === 'running'" [nzColor]="'#87d068'">En service</nz-tag>
+                <nz-tag *ngIf="vm_info.status === 'stopped'" [nzColor]="'#e74c3c'">A l'arrêt</nz-tag>
+            </nz-col>
+            <nz-col nzSpan="12">
+                <span class="info_dashboard_primary">OS :</span>
+                <span class="info_dashboard_secondary">{{vm_info.os}}</span>
+            </nz-col>
+            <nz-col nzSpan="12">
+                <span class="info_dashboard_primary">IP :</span>
+                <span class="info_dashboard_secondary">{{vm_info.ip}}</span>
+            </nz-col>
+            <nz-col nzSpan="12">
+                <span class="info_dashboard_primary">CPU :</span>
+                <span class="info_dashboard_secondary">{{vm_info.cpu}}</span>
+            </nz-col>
+            <nz-col nzSpan="12">
+                <span class="info_dashboard_primary">Cores :</span>
+                <span class="info_dashboard_secondary">{{vm_info.cores}}</span>
+            </nz-col>
+            <nz-col nzSpan="24" class="info_interfaces">
+                <span class="info_dashboard_primary">Interfaces :</span>
+                <span class="info_dashboard_secondary">{{vm_info.interfaces}}</span>
+            </nz-col>
+        </nz-row>
+    </nz-col>
+    <nz-col nzSpan="11" nzOffset="1" class="card">
+        <nz-row nzJustify="center">
+            <nz-col nzSpan="12">
+                <ngx-gauge [type]="'arch'"
+                    [cap]="'round'"
+                    [thick]=10
+                    [value]="((vm_info.mem*100) /vm_info.maxmem) | number:'1.0-0'" 
+                    [label]="'RAM'"  
+                    [append]="'%'"
+                    [foregroundColor]="'#E57000'">
+                </ngx-gauge>
+            </nz-col>
+            <nz-col nzSpan="12">
+                <ngx-gauge [type]="'arch'"
+                    [cap]="'round'"
+                    [thick]=10
+                    [value]="(vm_info.cpuusage) | number:'1.0-0'" 
+                    [label]="'CPU'"  
+                    [append]="'%'"
+                    [foregroundColor]="'#E57000'">
+                </ngx-gauge>
+            </nz-col>
+            <nz-col nzSpan="12">
+                <ngx-gauge [type]="'arch'"
+                    [cap]="'round'"
+                    [thick]=10
+                    [value]="((vm_info.stockage*100)/vm_info.stockagemax) | number:'1.0-0'" 
+                    [label]="'Stockage'"  
+                    [append]="'GB'"
+                    [foregroundColor]="'#E57000'">
+                </ngx-gauge>
+            </nz-col>
+        </nz-row>
+    </nz-col>
+</nz-row>

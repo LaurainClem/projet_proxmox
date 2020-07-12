@@ -4,6 +4,7 @@ import { NodeComponent } from './node/node.component';
 import { IsLoggedInGuard } from './is-logged-in.guard';
 import { AuthComponent } from './auth/auth.component';
 import { VmComponent } from './vm/vm.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
     redirectTo: 'node',
   },
   {
+    path: 'login',
+    component: AuthComponent
+  },
+  {
     path: 'node',
     component: NodeComponent,
     canActivate: [
@@ -20,12 +25,18 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'login',
-    component: AuthComponent
+    path: 'vm',
+    component: VmComponent,
+    canActivate: [
+      IsLoggedInGuard
+    ]
   },
   {
-    path: 'vm',
-    component: VmComponent
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [
+      IsLoggedInGuard
+    ]
   }
 ];
 
