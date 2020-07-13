@@ -3,6 +3,8 @@ import { VmModels } from '../models/vm.models';
 import { ProxmoxService } from '../services/proxmox.service';
 import { Router } from '@angular/router';
 import * as prettyMilliseconds from 'pretty-ms';
+import { startWith } from 'rxjs/operators';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-vm',
@@ -13,23 +15,14 @@ export class VmComponent implements OnInit {
 
   vms: VmModels[];
 
-  constructor(public proxmoxService: ProxmoxService, private router: Router) { }
+  constructor(public proxmoxService: ProxmoxService, public router: Router) { }
 
   ngOnInit(): void {
-    this.vms = [
-      {
-        name: 'CentOS7-pgrelet.ir2021',
-        status : 'running',
-        lifetime: 8006752,
-        vmid: 2045
-      },
-      {
-        name: 'Centos-7-Projet2',
-        status : 'running',
-        lifetime: 605230,
-        vmid: 10000
-      }
-    ];
+    interval(60000).pipe(startWith(0)).subscribe(() => {
+      this.proxmoxService.getVms().subscribe(result => {
+        this.vms = result;
+      });
+    });
   }
 
   gotoDashboard(vmid: number): void {

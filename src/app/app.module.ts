@@ -25,6 +25,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NgxGaugeModule } from 'ngx-gauge';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 registerLocaleData(fr);
 
 @NgModule({
@@ -51,7 +52,8 @@ registerLocaleData(fr);
     NzMessageModule,
     NzTagModule,
     NzSwitchModule,
-    NgxGaugeModule
+    NgxGaugeModule,
+    NzIconModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
   bootstrap: [AppComponent]

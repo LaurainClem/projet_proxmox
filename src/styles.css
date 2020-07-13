@@ -37,3 +37,14 @@ app-dashboard {
     display: block;
     margin: 15vh 10vw 0 10vw;
 }
+
+.prev_button {
+    font-size: 3rem;
+    color: #E57000;
+    font-weight: 800;
+    vertical-align: text-bottom;
+}
+
+.prev_button:hover {
+    cursor: pointer;
+}

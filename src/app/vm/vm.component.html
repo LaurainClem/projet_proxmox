@@ -1,4 +1,6 @@
-<h1 class="title_vm">{{proxmoxService.nodeSelected ? proxmoxService.nodeSelected : 'Proxmox1'}}</h1> <!-- A changer après le mock -->
+<h1 class="title_vm"><span class="material-icons prev_button" (click)="router.navigateByUrl('/node')">
+    arrow_back_ios
+    </span>{{proxmoxService.nodeSelected}}</h1>
 <nz-row>
     <nz-col nzSpan="24" class="card" *ngFor="let vm of vms" (click)="gotoDashboard(vm.vmid)">
         <nz-row>
@@ -8,7 +10,7 @@
             </nz-col>
             <nz-col nzSpan="5">
                 <span class="material-icons icon_device">schedule</span>
-                <span class="lt_vm">{{pretty(vm.lifetime * 100)}}</span>
+                <span class="lt_vm">{{pretty(vm.uptime * 100)}}</span>
             </nz-col>
             <nz-col nzSpan="4">
                 <nz-tag *ngIf="vm.status === 'running'" [nzColor]="'#87d068'">En service</nz-tag>

@@ -6,7 +6,6 @@ import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError, retry } from 'rxjs/operators';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { tick } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class AuthService {
 
   username: string;
   ticket: string;
-  CSRFPrevention: string;
+  CSRFPreventionToken: string;
 
   constructor(private http: HttpClient, private router: Router, private message: NzMessageService) {
   }
@@ -35,16 +34,14 @@ export class AuthService {
         }
     }})).subscribe((auth_data: any) => {
       this.ticket = auth_data?.ticket;
-      this.CSRFPrevention = auth_data?.CSRFPreventionToken;
+      this.CSRFPreventionToken = auth_data?.CSRFPreventionToken;
       this.username = auth_data?.username;
-      console.debug('Connecté en tant que ', username);
       this.router.navigateByUrl('/node');
     });
   }
 
   isLoggedIn(): boolean {
-    return true;
-    // return this.ticket !== undefined && this.CSRFPrevention !== undefined;
+    return this.ticket !== undefined && this.CSRFPreventionToken !== undefined;
   }
 
   getRealm(): Observable<any> {
@@ -53,15 +50,15 @@ export class AuthService {
 
   getDisconected() {
     this.username = undefined;
-    this.CSRFPrevention = undefined;
+    this.CSRFPreventionToken = undefined;
     this.ticket = undefined;
     this.router.navigateByUrl('/login');
   }
 
-  getCredentials(): {ticket: string, CSRFPrevention: string} {
+  getCredentials(): {ticket: string, CSRFPreventionToken: string} {
     return {
       ticket: this.ticket,
-      CSRFPrevention: this.CSRFPrevention
+      CSRFPreventionToken: this.CSRFPreventionToken
     };
   }
 }

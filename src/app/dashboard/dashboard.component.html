@@ -1,71 +1,89 @@
-<h2 class="title_vm">{{vm_info.name}}</h2>
+<h2 class="title_vm"><span class="material-icons prev_button" (click)="router.navigateByUrl('/vm')">
+    arrow_back_ios
+    </span>
+    {{vm_info?.name}}</h2>
 <nz-row>
     <nz-col nzSpan="12" class="card">
-        <nz-switch nzCheckedChildren="On" nzUnCheckedChildren="Off"></nz-switch>
+        <nz-switch [(ngModel)]="switchStatus" nzCheckedChildren="On" nzUnCheckedChildren="Off" (click)="switchStatusVm(vm_info.status)"></nz-switch>
         <nz-row>
             <nz-col nzSpan="12">
                 <span class="info_dashboard_primary">VMID :</span>
-                <span class="info_dashboard_secondary">{{vm_info.vmid}}</span>
+                <span class="info_dashboard_secondary">{{vm_info?.vmid ? vm_info?.vmid : 'NA'}}</span>
             </nz-col>
             <nz-col nzSpan="12">
                 <span class="info_dashboard_primary">Statut :</span>
-                <nz-tag *ngIf="vm_info.status === 'running'" [nzColor]="'#87d068'">En service</nz-tag>
-                <nz-tag *ngIf="vm_info.status === 'stopped'" [nzColor]="'#e74c3c'">A l'arrêt</nz-tag>
+                <nz-tag *ngIf="vm_info?.status === 'running'" [nzColor]="'#87d068'">En service</nz-tag>
+                <nz-tag *ngIf="vm_info?.status === 'stopped'" [nzColor]="'#e74c3c'">A l'arrêt</nz-tag>
+                <nz-tag *ngIf="!vm_info?.status" [nzColor]="'#34495e'">Inconnu</nz-tag>
             </nz-col>
             <nz-col nzSpan="12">
                 <span class="info_dashboard_primary">OS :</span>
-                <span class="info_dashboard_secondary">{{vm_info.os}}</span>
+                <span class="info_dashboard_secondary">{{vm_info?.os ? vm_info?.os : 'NA'}}</span>
             </nz-col>
             <nz-col nzSpan="12">
                 <span class="info_dashboard_primary">IP :</span>
-                <span class="info_dashboard_secondary">{{vm_info.ip}}</span>
+                <span class="info_dashboard_secondary">{{vm_info?.ipaddress? vm_info?.ipaddress : 'NA'}}</span>
             </nz-col>
             <nz-col nzSpan="12">
                 <span class="info_dashboard_primary">CPU :</span>
-                <span class="info_dashboard_secondary">{{vm_info.cpu}}</span>
+                <span class="info_dashboard_secondary">{{vm_info?.cpus ? vm_info?.cpus : 'NA'}}</span>
             </nz-col>
             <nz-col nzSpan="12">
                 <span class="info_dashboard_primary">Cores :</span>
-                <span class="info_dashboard_secondary">{{vm_info.cores}}</span>
+                <span class="info_dashboard_secondary">{{vm_info?.cores ? vm_info?.cores : 'NA'}}</span>
             </nz-col>
             <nz-col nzSpan="24" class="info_interfaces">
                 <span class="info_dashboard_primary">Interfaces :</span>
-                <span class="info_dashboard_secondary">{{vm_info.interfaces}}</span>
+                <p class="info_dashboard_secondary eth_info">{{vm_info?.eth ? vm_info?.eth : 'NA'}}</p>
             </nz-col>
         </nz-row>
     </nz-col>
     <nz-col nzSpan="11" nzOffset="1" class="card">
         <nz-row nzJustify="center">
             <nz-col nzSpan="12">
-                <ngx-gauge [type]="'arch'"
+                <ngx-gauge class="gauge_gauche"
+                    [type]="'arch'"
                     [cap]="'round'"
                     [thick]=10
-                    [value]="((vm_info.mem*100) /vm_info.maxmem) | number:'1.0-0'" 
+                    [value]="((vm_info?.mem*100) /vm_info?.maxmem) | number:'1.0-0'" 
                     [label]="'RAM'"  
                     [append]="'%'"
                     [foregroundColor]="'#E57000'">
                 </ngx-gauge>
             </nz-col>
             <nz-col nzSpan="12">
-                <ngx-gauge [type]="'arch'"
+                <ngx-gauge class="gauge_droite"
+                    [type]="'arch'"
                     [cap]="'round'"
                     [thick]=10
-                    [value]="(vm_info.cpuusage) | number:'1.0-0'" 
+                    [value]="(vm_info?.cpu * 100) | number:'1.0-0'" 
                     [label]="'CPU'"  
                     [append]="'%'"
                     [foregroundColor]="'#E57000'">
                 </ngx-gauge>
             </nz-col>
-            <nz-col nzSpan="12">
-                <ngx-gauge [type]="'arch'"
+            <nz-col nzSpan="12" class="gauge_mid">
+                <ngx-gauge
+                    [type]="'arch'"
                     [cap]="'round'"
                     [thick]=10
-                    [value]="((vm_info.stockage*100)/vm_info.stockagemax) | number:'1.0-0'" 
+                    [value]="((vm_info?.diskwrite*100)/vm_info?.maxdisk) | number:'1.0-2'" 
                     [label]="'Stockage'"  
                     [append]="'GB'"
                     [foregroundColor]="'#E57000'">
                 </ngx-gauge>
             </nz-col>
         </nz-row>
+    </nz-col>
+</nz-row>
+<nz-row nzJustify="center" class="command_section">
+    <nz-col>
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input [(ngModel)]="command" type="text" nz-input placeholder="Command ..." />
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <button nz-button nzType="primary" nzSearch (click)="sendCommand()"><i nz-icon nzType="send"></i></button>
+          </ng-template>
+          <p class="result_command"></p>
     </nz-col>
 </nz-row>

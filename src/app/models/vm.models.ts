@@ -1,17 +1,17 @@
 export class VmModels {
     name: string;
     status: 'stopped' | 'running';
-    lifetime: number;
+    uptime: number;
     vmid: number;
     os?: string;
-    ip?: string;
+    ipaddress?: string;
+    cpus?: number; // nb de cpu total
     cpu?: number;
     cores?: number;
-    interfaces?: string;
+    eth?: string;
     mem?: number;
     maxmem?: number;
     cpuusage?: number;
-    cpuusagemax?: number;
-    stockage?: number;
-    stockagemax?: number;
+    maxdisk?: number;
+    diskwrite?: number;
 }

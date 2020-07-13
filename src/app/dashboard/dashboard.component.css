@@ -6,6 +6,7 @@
 
 .card {
     padding: 3rem;
+    min-width: 420px;
 }
 
 .info_dashboard_primary {
@@ -35,4 +36,36 @@ nz-switch {
     position: absolute;
     top: 1rem;
     right: 2rem;
+}
+
+.eth_info {
+    word-wrap: break-word;
+}
+
+.gauge_droite {
+    position: absolute;
+    right: 0;
+}
+
+.gauge_gauche {
+    position: absolute;
+    left: 0;
+}
+
+.gauge_mid {
+    position: absolute;
+    bottom: 0;
+}
+
+.command_section {
+    margin-top: 2rem;
+}
+
+input {
+    width: 20vw;
+}
+
+.result_command {
+    min-width: 15vw;
+    width: 15vw;
 }
