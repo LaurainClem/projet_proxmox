@@ -78,12 +78,12 @@
 </nz-row>
 <nz-row nzJustify="center" class="command_section">
     <nz-col>
-        <nz-input-group [nzSuffix]="suffixIconSearch">
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
             <input [(ngModel)]="command" type="text" nz-input placeholder="Command ..." />
           </nz-input-group>
-          <ng-template #suffixIconSearch>
-            <button nz-button nzType="primary" nzSearch (click)="sendCommand()"><i nz-icon nzType="send"></i></button>
+          <ng-template #suffixIconButton>
+            <button (click)="sendCommand()" nz-button nzType="primary" nzSearch><i nz-icon nzType="send"></i></button>
           </ng-template>
-          <p class="result_command"></p>
+          <p class="result_command">{{commandResult}}</p>
     </nz-col>
 </nz-row>

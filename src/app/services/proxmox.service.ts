@@ -40,8 +40,10 @@ export class ProxmoxService {
     this.authService.getCredentials());
   }
 
-  sendCommand(): Observable<string> {
-    return this.http.post<string>(`${environment.baseUrl}/${Api.nodes}/${this.nodeSelected}/${Api.vm}/${this.vmidSelected}/age`,
-    this.authService.getCredentials());
+  sendCommand(command: string): Observable<string> {
+    const body: any = this.authService.getCredentials();
+    body.command = command;
+    return this.http.post<string>(`${environment.baseUrl}/${Api.nodes}/${this.nodeSelected}/${Api.vm}/${this.vmidSelected}/command`,
+    body);
   }
 }

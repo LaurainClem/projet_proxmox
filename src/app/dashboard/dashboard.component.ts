@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   vm_info: VmModels;
   switchStatus: boolean;
   command = '';
+  commandResult = '';
 
   constructor(private proxmoxService: ProxmoxService, public router: Router) { }
 
@@ -37,7 +38,10 @@ export class DashboardComponent implements OnInit {
   }
 
   sendCommand(): void {
-    
+    this.proxmoxService.sendCommand(this.command)
+    .subscribe((result: any) => {
+      this.commandResult = result.resultCommand;
+    });
   }
 
 }
